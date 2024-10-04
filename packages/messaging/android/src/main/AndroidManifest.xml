@@ -7,16 +7,15 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
   <application>
-    <service android:name=".ReactNativeFirebaseMessagingHeadlessService"
-              android:exported="false" />
-    <service android:name=".ReactNativeFirebaseMessagingService"
+    <service android:exported="true" android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingHeadlessService" />
+    <service android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingService"
              android:exported="false">
       <intent-filter>
         <action android:name="com.google.firebase.MESSAGING_EVENT"/>
       </intent-filter>
     </service>
     <receiver
-      android:name=".ReactNativeFirebaseMessagingReceiver"
+      android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingReceiver"
       android:exported="true"
       android:permission="com.google.android.c2dm.permission.SEND">
       <intent-filter>

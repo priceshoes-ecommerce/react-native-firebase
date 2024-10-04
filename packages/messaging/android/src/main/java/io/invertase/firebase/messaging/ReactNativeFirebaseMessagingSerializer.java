@@ -168,7 +168,7 @@ public class ReactNativeFirebaseMessagingSerializer {
     }
 
     if (notification.getNotificationPriority() != null) {
-      androidNotificationMap.putInt("priority", notification.getNotificationPriority());
+      androidNotificationMap.putInt("priority", 1/*notification.getNotificationPriority()*/);
     }
 
     if (notification.getSound() != null) {
