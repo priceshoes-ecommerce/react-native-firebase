@@ -17,7 +17,6 @@
 
 #import <RNFBApp/RNFBRCTEventEmitter.h>
 
-#import "RNFBJSON.h"
 #import "RNFBMessaging+UNUserNotificationCenter.h"
 #import "RNFBMessagingSerializer.h"
 
@@ -83,50 +82,6 @@ struct {
        willPresentNotification:(UNNotification *)notification
          withCompletionHandler:
              (void (^)(UNNotificationPresentationOptions options))completionHandler {
-  NSArray *presentationOptionsConfig =
-      [[RNFBJSON shared] getArrayValue:@"messaging_ios_foreground_presentation_options"
-                          defaultValue:@[]];
-
-  UNNotificationPresentationOptions presentationOptions = UNNotificationPresentationOptionNone;
-
-  BOOL badge = [presentationOptionsConfig containsObject:@"badge"];
-  BOOL sound = [presentationOptionsConfig containsObject:@"sound"];
-  BOOL alert = [presentationOptionsConfig containsObject:@"alert"];
-  BOOL list = [presentationOptionsConfig containsObject:@"list"];
-  BOOL banner = [presentationOptionsConfig containsObject:@"banner"];
-
-  if (badge) {
-    presentationOptions |= UNNotificationPresentationOptionBadge;
-  }
-
-  if (sound) {
-    presentationOptions |= UNNotificationPresentationOptionSound;
-  }
-
-  // if list or banner is true, ignore `alert` property
-  if (banner || list) {
-    if (banner) {
-      if (@available(iOS 14, *)) {
-        presentationOptions |= UNNotificationPresentationOptionBanner;
-      } else {
-        // for iOS 13 we need to set `alert`
-        presentationOptions |= UNNotificationPresentationOptionAlert;
-      }
-    }
-
-    if (list) {
-      if (@available(iOS 14, *)) {
-        presentationOptions |= UNNotificationPresentationOptionList;
-      } else {
-        // for iOS 13 we need to set `alert`
-        presentationOptions |= UNNotificationPresentationOptionAlert;
-      }
-    }
-  } else if (alert) {
-    // TODO: Remove `alert` once iOS 14 becomes the minimum deployment target
-    presentationOptions |= UNNotificationPresentationOptionAlert;
-  }
-
   if (notification.request.content.userInfo[@"gcm.message_id"]) {
     NSDictionary *notificationDict = [RNFBMessagingSerializer notificationToDict:notification];
 
@@ -136,7 +91,9 @@ struct {
       [[RNFBRCTEventEmitter shared] sendEventWithName:@"messaging_message_received"
                                                  body:notificationDict];
     }
-    completionHandler(presentationOptions);
+
+    // TODO in a later version allow customising completion options in JS code
+    completionHandler(UNNotificationPresentationOptionNone);
   }
 
   if (_originalDelegate != nil && originalDelegateRespondsTo.willPresentNotification) {
@@ -144,7 +101,7 @@ struct {
                       willPresentNotification:notification
                         withCompletionHandler:completionHandler];
   } else {
-    completionHandler(presentationOptions);
+    completionHandler(UNNotificationPresentationOptionNone);
   }
 }
 
@@ -172,7 +129,9 @@ struct {
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
     openSettingsForNotification:(nullable UNNotification *)notification {
   if (_originalDelegate != nil && originalDelegateRespondsTo.openSettingsForNotification) {
-    [_originalDelegate userNotificationCenter:center openSettingsForNotification:notification];
+    if (@available(iOS 12.0, *)) {
+      [_originalDelegate userNotificationCenter:center openSettingsForNotification:notification];
+    }
   } else {
     NSDictionary *notificationDict = [RNFBMessagingSerializer notificationToDict:notification];
     [[RNFBRCTEventEmitter shared] sendEventWithName:@"messaging_settings_for_notification_opened"

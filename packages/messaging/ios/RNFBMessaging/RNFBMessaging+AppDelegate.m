@@ -118,31 +118,8 @@
     didReceiveRemoteNotification:(NSDictionary *)userInfo
           fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
 #if __has_include(<FirebaseAuth/FirebaseAuth.h>)
-
-  for (id appId in [FIRApp allApps]) {
-    FIRApp *app = [[FIRApp allApps] objectForKey:appId];
-    if ([[FIRAuth authWithApp:app] canHandleNotification:userInfo]) {
-      DLog(@"didReceiveRemoteNotification Firebase Auth handled the notification with instance: %@",
-           app.name);
-      completionHandler(UIBackgroundFetchResultNoData);
-      return;
-    }
-  }
-
-  // If the notification is a probe notification, always call the completion
-  // handler with UIBackgroundFetchResultNoData.
-  //
-  // This fixes a race condition between `FIRAuth/didReceiveRemoteNotification` and this
-  // module causing detox to hang when `FIRAuth/didReceiveRemoteNotification` is called first.
-  // see
-  // https://stackoverflow.com/questions/72044950/detox-tests-hang-with-pending-items-on-dispatch-queue/72989494
-  NSDictionary *data = userInfo[@"com.google.firebase.auth"];
-  if ([data isKindOfClass:[NSString class]]) {
-    // Deserialize in case the data is a JSON string.
-    NSData *JSONData = [((NSString *)data) dataUsingEncoding:NSUTF8StringEncoding];
-    data = [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:NULL];
-  }
-  if ([data isKindOfClass:[NSDictionary class]] && data[@"warning"]) {
+  if ([[FIRAuth auth] canHandleNotification:userInfo]) {
+    DLog(@"didReceiveRemoteNotification Firebase Auth handeled the notification");
     completionHandler(UIBackgroundFetchResultNoData);
     return;
   }

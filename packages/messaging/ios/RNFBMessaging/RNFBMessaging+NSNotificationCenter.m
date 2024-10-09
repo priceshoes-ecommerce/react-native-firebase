@@ -87,17 +87,17 @@
         (RCTRootView *)[UIApplication sharedApplication].delegate.window.rootViewController.view;
   }
 
-  // #if !(TARGET_IPHONE_SIMULATOR)
+#if !(TARGET_IPHONE_SIMULATOR)
   if ([[RNFBJSON shared] getBooleanValue:@"messaging_ios_auto_register_for_remote_messages"
                             defaultValue:YES]) {
     [[UIApplication sharedApplication] registerForRemoteNotifications];
   }
-  // #endif
+#endif
 
   if (notification.userInfo[UIApplicationLaunchOptionsRemoteNotificationKey]) {
     if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
-      isHeadless = YES;
       if (rctRootView != nil) {
+        isHeadless = YES;
         NSMutableDictionary *appPropertiesDict = rctRootView.appProperties != nil
                                                      ? [rctRootView.appProperties mutableCopy]
                                                      : [NSMutableDictionary dictionary];
@@ -108,7 +108,7 @@
         }
       }
 
-      // #if !(TARGET_IPHONE_SIMULATOR)
+#if !(TARGET_IPHONE_SIMULATOR)
       // When an app launches in the background (BG mode) and is launched with the notification
       // launch option the app delegate method
       // application:didReceiveRemoteNotification:fetchCompletionHandler: will not get called unless
@@ -118,10 +118,10 @@
       // `messaging_ios_auto_register_for_remote_messages` as this is most likely an app launching
       // as a result of a remote notification - so has been registered previously
       [[UIApplication sharedApplication] registerForRemoteNotifications];
-      // #endif
+#endif
     } else {
-      isHeadless = NO;
       if (rctRootView != nil) {
+        isHeadless = NO;
         NSMutableDictionary *appPropertiesDict = rctRootView.appProperties != nil
                                                      ? [rctRootView.appProperties mutableCopy]
                                                      : [NSMutableDictionary dictionary];
@@ -133,8 +133,8 @@
       }
     }
   } else {
-    isHeadless = NO;
     if (rctRootView != nil) {
+      isHeadless = NO;
       NSMutableDictionary *appPropertiesDict = rctRootView.appProperties != nil
                                                    ? [rctRootView.appProperties mutableCopy]
                                                    : [NSMutableDictionary dictionary];
@@ -148,7 +148,6 @@
 }
 
 - (void)application_onDidEnterForeground {
-  isHeadless = NO;
   if ([UIApplication sharedApplication].delegate != nil &&
       [UIApplication sharedApplication].delegate.window != nil &&
       [UIApplication sharedApplication].delegate.window.rootViewController != nil &&
@@ -161,6 +160,7 @@
     if (rctRootView.appProperties != nil &&
         [rctRootView.appProperties[@"isHeadless"] isEqual:@(YES)]) {
       NSMutableDictionary *appPropertiesDict = [rctRootView.appProperties mutableCopy];
+      isHeadless = NO;
       if ([appPropertiesDict objectForKey:@"isHeadless"] != nil &&
           [appPropertiesDict[@"isHeadless"] isEqual:@([RCTConvert BOOL:@(YES)])]) {
         appPropertiesDict[@"isHeadless"] = @([RCTConvert BOOL:@(isHeadless)]);
