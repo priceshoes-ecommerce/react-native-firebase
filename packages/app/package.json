@@ -34,7 +34,7 @@
     "remote-config",
     "transactions",
     "react-native",
-    "react-native-firebase",
+    "ps-rn-fb",
     "firebase",
     "fcm",
     "apn",
@@ -88,5 +88,6 @@
       "gmsGoogleServicesGradle": "4.4.2",
       "playServicesAuth": "21.2.0"
     }
-  }
+  },
+  "gitHead": "73b0ef7f8fb2a4a425771c03feb4e3f254e0f8e5"
 }

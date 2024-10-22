@@ -25,7 +25,7 @@
     "appCheck"
   ],
   "peerDependencies": {
-    "@react-native-firebase/app": "21.0.2",
+    "@react-native-firebase/app": "21.0.1",
     "expo": ">=47.0.0"
   },
   "devDependencies": {
@@ -38,5 +38,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "73b0ef7f8fb2a4a425771c03feb4e3f254e0f8e5"
 }

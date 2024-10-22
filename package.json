@@ -1,5 +1,5 @@
 {
-  "name": "react-native-firebase",
+  "name": "ps-rn-fb",
   "private": true,
   "scripts": {
     "version": "node ./scripts/version.js",
