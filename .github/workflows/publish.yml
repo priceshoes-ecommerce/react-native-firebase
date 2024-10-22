@@ -8,7 +8,7 @@ on:
 
 jobs:
   publish_npm:
-    if: "(github.repository == 'invertase/react-native-firebase') && (github.event_name == 'workflow_dispatch')"
+    if: "(github.repository == 'priceshoes-ecommerce/react-native-firebase') && (github.event_name == 'workflow_dispatch')"
     name: 'NPM'
     timeout-minutes: 30
     runs-on: ubuntu-latest
@@ -29,8 +29,8 @@ jobs:
           command: yarn && yarn lerna:prepare
       - name: GIT Setup
         run: |
-          git config --global user.name '@Salakar'
-          git config --global user.email 'Salakar@users.noreply.github.com'
+          git config --global user.name '@uriStolar'
+          git config --global user.email 'uriStolar@users.noreply.github.com'
           git remote set-url origin git@github.com:$GITHUB_REPOSITORY
       - uses: webfactory/ssh-agent@v0.9.0
         with:

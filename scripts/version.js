@@ -21,8 +21,8 @@ packages.forEach(package => {
 
   let changelogContents = readFileSync(changelogPath).toString('utf-8');
   changelogContents = changelogContents.replace(
-    /github\.com\/invertase\/react-native-firebase\/(tree\/main\/packages\/[a-z-]*\/)/gm,
-    'github.com/invertase/react-native-firebase/',
+    /github\.com\/priceshoes-ecommerce\/react-native-firebase\/(tree\/main\/packages\/[a-z-]*\/)/gm,
+    'github.com/priceshoes-ecommerce/react-native-firebase/',
   );
   writeFileSync(changelogPath, changelogContents);
 
