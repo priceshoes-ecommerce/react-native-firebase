@@ -24,8 +24,8 @@
     "remote-config"
   ],
   "peerDependencies": {
-    "@react-native-firebase/analytics": "21.0.1",
-    "@react-native-firebase/app": "21.0.1"
+    "@react-native-firebase/analytics": "21.0.2",
+    "@react-native-firebase/app": "21.0.2"
   },
   "publishConfig": {
     "access": "public"
