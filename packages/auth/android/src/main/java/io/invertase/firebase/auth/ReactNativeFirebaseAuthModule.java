@@ -109,7 +109,7 @@ class ReactNativeFirebaseAuthModule extends ReactNativeFirebaseModule {
   private final HashMap<String, MultiFactorSession> mMultiFactorSessions = new HashMap<>();
 
   // storage for anonymous phone auth credentials, used for linkWithCredentials
-  // https://github.com/invertase/react-native-firebase/issues/4911
+  // https://github.com/priceshoes-ecommerce/react-native-firebase/issues/4911
   private HashMap<String, AuthCredential> credentials = new HashMap<>();
 
   ReactNativeFirebaseAuthModule(ReactApplicationContext reactContext) {

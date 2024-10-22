@@ -26,12 +26,18 @@ function Footer(): JSX.Element {
           <Heading>GitHub</Heading>
           <List
             items={[
-              ['Repository', 'https://github.com/invertase/react-native-firebase'],
-              ['License', 'https://github.com/invertase/react-native-firebase/blob/main/LICENSE'],
-              ['Pull Requests', 'https://github.com/invertase/react-native-firebase/pulls'],
+              ['Repository', 'https://github.com/priceshoes-ecommerce/react-native-firebase'],
+              [
+                'License',
+                'https://github.com/priceshoes-ecommerce/react-native-firebase/blob/main/LICENSE',
+              ],
+              [
+                'Pull Requests',
+                'https://github.com/priceshoes-ecommerce/react-native-firebase/pulls',
+              ],
               [
                 'Contributors',
-                'https://github.com/invertase/react-native-firebase/graphs/contributors',
+                'https://github.com/priceshoes-ecommerce/react-native-firebase/graphs/contributors',
               ],
             ]}
           />

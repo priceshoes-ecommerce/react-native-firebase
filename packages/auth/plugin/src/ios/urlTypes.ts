@@ -35,7 +35,7 @@ function getReversedClientId(googleServiceFilePath: string): string {
 }
 
 // add phone auth support by configuring recaptcha
-// https://github.com/invertase/react-native-firebase/pull/6167
+// https://github.com/priceshoes-ecommerce/react-native-firebase/pull/6167
 function addUriScheme(
   config: ExportedConfigWithProps<IOSConfig.InfoPlist>,
   reversedClientId: string,

@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.homepage            = "http://invertase.io/oss/react-native-firebase"
   s.license             = package['license']
   s.authors             = "Invertase Limited"
-  s.source              = { :git => "https://github.com/invertase/react-native-firebase.git", :tag => "v#{s.version}" }
+  s.source              = { :git => "https://github.com/priceshoes-ecommerce/react-native-firebase.git", :tag => "v#{s.version}" }
   s.social_media_url    = 'http://twitter.com/invertaseio'
   s.ios.deployment_target = "10.0"
   s.source_files        = 'ios/**/*.{h,m}'

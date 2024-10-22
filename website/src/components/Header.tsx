@@ -41,7 +41,7 @@ function Header({ onMenuToggle }: Props): JSX.Element {
         <ul className="flex ml-6">
           <li>
             <Link
-              to="https://github.com/invertase/react-native-firebase"
+              to="https://github.com/priceshoes-ecommerce/react-native-firebase"
               target="_blank"
               className="inline-flex ml-4"
             >

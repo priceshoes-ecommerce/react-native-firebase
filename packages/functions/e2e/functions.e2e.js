@@ -16,7 +16,7 @@
  */
 
 // Keep this in sync with the data in:
-// https://github.com/invertase/react-native-firebase/blob/main/.github/workflows/scripts/functions/src/sample-data.ts
+// https://github.com/priceshoes-ecommerce/react-native-firebase/blob/main/.github/workflows/scripts/functions/src/sample-data.ts
 const SAMPLE_DATA = {
   number: 1234,
   string: 'acde',
