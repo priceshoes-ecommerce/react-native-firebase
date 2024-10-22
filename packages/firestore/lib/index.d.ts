@@ -770,7 +770,7 @@ export namespace FirebaseFirestoreTypes {
      *
      * Please be careful using this operator. It may not be reliable enough for use in circumstances where absolute accuracy is required,
      * as it appears writes to Firestore may sometimes be duplicated in situations not fully understood yet, but possibly correlated with
-     * write frequency. See https://github.com/invertase/react-native-firebase/discussions/5914
+     * write frequency. See https://github.com/priceshoes-ecommerce/react-native-firebase/discussions/5914
      *
      * @param n The value to increment by.
      */

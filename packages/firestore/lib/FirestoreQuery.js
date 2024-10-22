@@ -91,7 +91,7 @@ export default class FirestoreQuery {
         values.push(value);
       }
 
-      // Based on https://github.com/invertase/react-native-firebase/issues/2854#issuecomment-552986650
+      // Based on https://github.com/priceshoes-ecommerce/react-native-firebase/issues/2854#issuecomment-552986650
       if (modifiers._orders.length) {
         const lastOrder = modifiers._orders[modifiers._orders.length - 1];
         //push '__name__' field only if not present already

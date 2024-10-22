@@ -422,7 +422,7 @@ class FirebaseAuthModule extends FirebaseModule {
       .then(userCredential => this._setUserCredential(userCredential));
   }
 
-  // firebase issue - https://github.com/invertase/react-native-firebase/pull/655#issuecomment-349904680
+  // firebase issue - https://github.com/priceshoes-ecommerce/react-native-firebase/pull/655#issuecomment-349904680
   useDeviceLanguage() {
     throw new Error(
       'firebase.auth().useDeviceLanguage() is unsupported by the native Firebase SDKs.',

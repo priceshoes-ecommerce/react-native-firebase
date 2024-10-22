@@ -1,6 +1,6 @@
 {
   "name": "@react-native-firebase/crashlytics",
-  "version": "21.0.0",
+  "version": "21.0.2",
   "author": "Invertase <oss@invertase.io> (http://invertase.io)",
   "description": "React Native Firebase - Firebase Crashlytics is a lightweight, realtime crash reporter that helps you track, prioritize, and fix stability issues that erode your app quality. React Native Firebase provides automatic crash reporting for both native and JavaScript errors, including unhandled promise rejections.",
   "main": "lib/index.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/invertase/react-native-firebase/tree/main/packages/crashlytics"
+    "url": "https://github.com/priceshoes-ecommerce/react-native-firebase/tree/main/packages/crashlytics"
   },
   "license": "Apache-2.0",
   "keywords": [
@@ -29,7 +29,7 @@
     "crashlytics"
   ],
   "peerDependencies": {
-    "@react-native-firebase/app": "21.0.0",
+    "@react-native-firebase/app": "21.0.1",
     "expo": ">=47.0.0"
   },
   "dependencies": {
@@ -45,5 +45,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "73b0ef7f8fb2a4a425771c03feb4e3f254e0f8e5"
 }

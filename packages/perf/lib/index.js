@@ -93,7 +93,7 @@ class FirebasePerfModule extends FirebaseModule {
 
     if (Platform.OS == 'ios') {
       // '_instrumentationEnabled' is updated here as well to maintain backward compatibility. See:
-      // https://github.com/invertase/react-native-firebase/commit/b705622e64d6ebf4ee026d50841e2404cf692f85
+      // https://github.com/priceshoes-ecommerce/react-native-firebase/commit/b705622e64d6ebf4ee026d50841e2404cf692f85
       this._instrumentationEnabled = enabled;
       await this.native.instrumentationEnabled(enabled);
     }

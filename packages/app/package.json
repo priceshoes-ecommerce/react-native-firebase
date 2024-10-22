@@ -1,6 +1,6 @@
 {
   "name": "@react-native-firebase/app",
-  "version": "21.0.0",
+  "version": "21.0.2",
   "author": "Invertase <oss@invertase.io> (http://invertase.io)",
   "description": "A well tested, feature rich Firebase implementation for React Native, supporting iOS & Android. Individual module support for Admob, Analytics, Auth, Crash Reporting, Cloud Firestore, Database, Dynamic Links, Functions, Messaging (FCM), Remote Config, Storage and more.",
   "main": "lib/index.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/invertase/react-native-firebase/tree/main/packages/app"
+    "url": "https://github.com/priceshoes-ecommerce/react-native-firebase/tree/main/packages/app"
   },
   "license": "Apache-2.0",
   "keywords": [
@@ -34,7 +34,7 @@
     "remote-config",
     "transactions",
     "react-native",
-    "react-native-firebase",
+    "ps-rn-fb",
     "firebase",
     "fcm",
     "apn",
@@ -88,5 +88,6 @@
       "gmsGoogleServicesGradle": "4.4.2",
       "playServicesAuth": "21.2.0"
     }
-  }
+  },
+  "gitHead": "73b0ef7f8fb2a4a425771c03feb4e3f254e0f8e5"
 }
